@@ -15,15 +15,15 @@ import com.search.service.SearchManager;
 
 @RestController
 public class SearchController {
-	
+
 	@Autowired
 	SearchManager searchManager;
 
-	@RequestMapping(value = "/projects/{input}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/projects/{input}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody List<ProjectsInfo> getAllProjects(@PathVariable("input") String input) {
 
 		return searchManager.getAllProjects(input);
-		
+
 	}
-	
+
 }

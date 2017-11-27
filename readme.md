@@ -8,3 +8,15 @@ The output must contain only project id, name, url and the owner login.
  
  the relevant GitHub API is : https://developer.github.com/v3/search/#search-repositories. ”
 
+To run the code :
+
+1) git clone https://github.com/mkris8/search-repository.git
+2) mvn clean
+3) mvn install
+4) mvn spring-boot:run
+5) Hit the service endpoint /projects by providing input param as below.
+Examples :
+http://localhost:8080/projects/java
+http://localhost:8080/projects/rust
+http://localhost:8080/projects/scala
+

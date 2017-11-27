@@ -88,7 +88,7 @@
 			</configuration>
 			</plugin>
 			
-	<!-- 	
+		<!-- 
 			<plugin>
 						<groupId>org.jsonschema2pojo</groupId>
 						<artifactId>jsonschema2pojo-maven-plugin</artifactId>
@@ -97,7 +97,7 @@
 							<annotationStyle>gson</annotationStyle>
 							<useCommonsLang3>true</useCommonsLang3>
 							<removeOldOutput>true</removeOldOutput>
-							<outputDirectory>${basedir}/src/main/java/com/search/model/json</outputDirectory>
+							<outputDirectory>${basedir}/src/main/java/com/search/model/pojo</outputDirectory>
 							<sourceType>json</sourceType>
 							<includes>
 								<include>*.json</include>
@@ -113,7 +113,7 @@
 							</execution>
 						</executions>
 					</plugin>
-				-->	
+			 -->	
 		</plugins>
 	</build>
 

@@ -7,16 +7,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.search.model.NullProjectsInfo;
 import com.search.model.ProjectsInfo;
-import com.search.model.json.Item;
-import com.search.model.json.Projects;
-
+import com.search.model.pojo.json.Item;
+import com.search.model.pojo.json.Projects;
 
 @Service ("searchManager")
 public class SearchManagerImpl implements SearchManager {
 
 	@Autowired
 	ProjectsInfo projectsInfo;
+	
+	@Autowired
+	NullProjectsInfo nullProjectsInfo;
+	
 	private List<ProjectsInfo> projectsInfoList;
 	private final String endpointURI = "https://api.github.com/search/repositories?q=";
 	
@@ -30,6 +34,11 @@ public class SearchManagerImpl implements SearchManager {
 
         List<Item> items = projects.getItems();
 		
+        if(items.isEmpty()) {
+        	nullProjectsInfo.setMessage("Not Available");
+        	projectsInfoList.add(nullProjectsInfo);
+        }
+        
         items.forEach(item->{
         	projectsInfo = new ProjectsInfo();
         	projectsInfo.setId(item.getId());
